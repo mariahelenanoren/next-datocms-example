@@ -1,7 +1,10 @@
-export default function Home() {
+import { IHome } from './types';
+import styles from './styles.module.css';
+
+export default function Home({ home }: { home: IHome }) {
   return (
-    <div>
-      <p>This is the homepage</p>
+    <div className={styles.home}>
+      <p>{home.title}</p>
     </div>
   );
 }

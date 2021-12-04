@@ -1,7 +1,14 @@
-export default function Header() {
+import { IHeader } from './types';
+import styles from './styles.module.css';
+
+export default function Header({ header }: { header: IHeader }) {
   return (
-    <div>
-      <p>This is a header!</p>
+    <div className={styles.header}>
+      {header.navigationLinks.map((navigationLink, index) => (
+        <a key={index} href={navigationLink.slug}>
+          {navigationLink.title}
+        </a>
+      ))}
     </div>
   );
 }
